@@ -19,7 +19,7 @@ echo "Fetch protoc_plugin version"
 PROTOC_PLUGIN_VERSION="$(curl -sSL --compressed https://pub.dev/api/packages/protoc_plugin | jq -r .latest.version)"
 echo "PROTOC_PLUGIN_VERSION=${PROTOC_PLUGIN_VERSION}"
 
-image_name="robojones/protoc-dart"
+image_name="micheljung/protoc-dart"
 unique_tag="${PROTOC_PLUGIN_VERSION}-dart${DART_VERSION}-protoc${PROTOC_VERSION}"
 
 tagDoesNotExist() {
@@ -28,7 +28,7 @@ tagDoesNotExist() {
     echo "Tag ${tag_name} exists"
     return 1
   else
-    echo "Tag robojones/protoc-dart:${tag_name} does not exist"
+    echo "Tag ${image_name}:${tag_name} does not exist"
     return 0
   fi
 }
